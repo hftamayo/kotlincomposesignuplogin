@@ -14,6 +14,7 @@ import androidx.compose.ui.unit.dp
 import androidx.lifecycle.HasDefaultViewModelProviderFactory
 import com.hftamayo.signuplogin.R
 import com.hftamayo.signuplogin.components.HeadingTextComponent
+import com.hftamayo.signuplogin.components.MyTextFieldComponent
 import com.hftamayo.signuplogin.components.NormalTextComponent
 
 @Composable
@@ -28,6 +29,8 @@ fun SignupScreen() {
         Column(modifier = Modifier.fillMaxSize()){
             NormalTextComponent(value = stringResource(id = R.string.hello))
             HeadingTextComponent(value = stringResource(id = R.string.create_account))
+
+            MyTextFieldComponent(labelValue = stringResource(id = R.string.firstName))
         }
     }
 }
