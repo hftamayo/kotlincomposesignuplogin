@@ -6,6 +6,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardOptions
+import androidx.compose.material.Icon
 import androidx.compose.material.OutlinedTextField
 import androidx.compose.material.Text
 import androidx.compose.material.TextFieldDefaults
@@ -13,7 +14,10 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.res.colorResource
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
@@ -21,10 +25,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.hftamayo.signuplogin.R
-import com.hftamayo.signuplogin.ui.theme.BgColor
-import com.hftamayo.signuplogin.ui.theme.GrayColor
-import com.hftamayo.signuplogin.ui.theme.Primary
-import com.hftamayo.signuplogin.ui.theme.TextColor
+import com.hftamayo.signuplogin.ui.theme.*
 
 
 @Composable
@@ -60,16 +61,15 @@ fun HeadingTextComponent(value:String){
 }
 
 @Composable
-fun MyTextFieldComponent(labelValue: String){
+fun MyTextFieldComponent(labelValue: String, painterResource: Painter){
     val textValue = remember {
         mutableStateOf("")
     }
 
     OutlinedTextField(
-        modifier = Modifier.fillMaxWidth().border(
-            BorderStroke(1.dp, GrayColor),
-            shape = RoundedCornerShape(50)
-        ),
+        modifier = Modifier
+            .fillMaxWidth()
+            .clip(componentShapes.small),
         label = { Text(text = labelValue) },
         colors = TextFieldDefaults.outlinedTextFieldColors(
             focusedBorderColor = Primary,
@@ -82,5 +82,8 @@ fun MyTextFieldComponent(labelValue: String){
         onValueChange = {
             textValue.value = it
         },
+        leadingIcon = {
+            Icon(painter = painterResource(id = R.drawable.profile) , contentDescription = "profile icon")
+        }
     )
 }
