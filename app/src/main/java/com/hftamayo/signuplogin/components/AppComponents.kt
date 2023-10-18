@@ -10,6 +10,9 @@ import androidx.compose.material.Icon
 import androidx.compose.material.OutlinedTextField
 import androidx.compose.material.Text
 import androidx.compose.material.TextFieldDefaults
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Visibility
+import androidx.compose.material.icons.filled.VisibilityOff
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -21,6 +24,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -84,6 +88,48 @@ fun MyTextFieldComponent(labelValue: String, painterResource: Painter){
         },
         leadingIcon = {
             Icon(painter = painterResource(id = R.drawable.profile) , contentDescription = "profile icon")
+        }
+    )
+}
+
+@Composable
+fun PasswordTextFieldComponent(labelValue: String, painterResource: Painter){
+    val password = remember {
+        mutableStateOf("")
+    }
+
+    val passwordVisible = remember {
+        mutableStateOf(false)
+    }
+
+    OutlinedTextField(
+        modifier = Modifier
+            .fillMaxWidth()
+            .clip(componentShapes.small),
+        label = { Text(text = labelValue) },
+        colors = TextFieldDefaults.outlinedTextFieldColors(
+            focusedBorderColor = Primary,
+            focusedLabelColor = Primary,
+            cursorColor = Primary,
+            backgroundColor = BgColor,
+        ),
+        keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Password),
+        value = password.value,
+        onValueChange = {
+            password.value = it
+        },
+        leadingIcon = {
+            Icon(painter = painterResource(id = R.drawable.profile) , contentDescription = "profile icon")
+        },
+        trailingIcon = {
+            val iconImage = if(passwordVisible.value) {
+                Icons.Filled.Visibility
+            } else {
+                Icons.Filled.VisibilityOff
+            }
+            var description = if(passwordVisible.value){
+
+            }
         }
     )
 }
