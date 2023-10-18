@@ -4,4 +4,6 @@
     <string name="create_account">Create an Account</string>
     <string name="welcome">Welcome Back</string>
     <string name="firstName">First Name</string>
+    <string name="lastName">Last Name</string>
+    <string name="email">Email</string>
 </resources>
