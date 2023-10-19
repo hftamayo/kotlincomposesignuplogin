@@ -15,6 +15,7 @@ import com.hftamayo.signuplogin.R
 import com.hftamayo.signuplogin.components.HeadingTextComponent
 import com.hftamayo.signuplogin.components.MyTextFieldComponent
 import com.hftamayo.signuplogin.components.NormalTextComponent
+import com.hftamayo.signuplogin.components.PasswordTextFieldComponent
 
 @Composable
 fun SignupScreen() {
@@ -41,10 +42,11 @@ fun SignupScreen() {
                 labelValue = stringResource(id = R.string.email),
                 painterResource(id = R.drawable.message)
             )
-            MyTextFieldComponent(
+            PasswordTextFieldComponent(
                 labelValue = stringResource(id = R.string.password),
                 painterResource(id = R.drawable.ic_lock)
             )
+
         }
     }
 }
