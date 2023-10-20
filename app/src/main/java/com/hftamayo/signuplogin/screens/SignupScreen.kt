@@ -12,10 +12,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.HasDefaultViewModelProviderFactory
 import com.hftamayo.signuplogin.R
-import com.hftamayo.signuplogin.components.HeadingTextComponent
-import com.hftamayo.signuplogin.components.MyTextFieldComponent
-import com.hftamayo.signuplogin.components.NormalTextComponent
-import com.hftamayo.signuplogin.components.PasswordTextFieldComponent
+import com.hftamayo.signuplogin.components.*
 
 @Composable
 fun SignupScreen() {
@@ -46,7 +43,10 @@ fun SignupScreen() {
                 labelValue = stringResource(id = R.string.password),
                 painterResource(id = R.drawable.ic_lock)
             )
+            CheckBoxComponent(value = stringResource(id = R.string.terms_and_conditions),
+                onTextSelected = {
 
+                })
         }
     }
 }
