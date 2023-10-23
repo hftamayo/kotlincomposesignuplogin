@@ -13,6 +13,8 @@ import androidx.compose.ui.unit.dp
 import androidx.lifecycle.HasDefaultViewModelProviderFactory
 import com.hftamayo.signuplogin.R
 import com.hftamayo.signuplogin.components.*
+import com.hftamayo.signuplogin.navigation.PostOfficeAppRouter
+import com.hftamayo.signuplogin.navigation.Screen
 
 @Composable
 fun SignupScreen() {
@@ -45,6 +47,7 @@ fun SignupScreen() {
             )
             CheckBoxComponent(value = stringResource(id = R.string.terms_and_conditions),
                 onTextSelected = {
+                    PostOfficeAppRouter.navigateTo(Screen.TermAndConditScreen)
 
                 })
         }
