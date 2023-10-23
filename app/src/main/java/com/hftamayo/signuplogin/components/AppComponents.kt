@@ -187,7 +187,7 @@ fun ClickableTextComponent(value: String, onTextSelected : (String) -> Unit){
         annotatedString.getStringAnnotations(offset, offset)
             .firstOrNull()?.also {span ->
                 Log.d("ClickableTextComponent","{${span.item}}")
-                if(span.item == termsAndConditionsText){
+                if((span.item == termsAndConditionsText) || (span.item == privacyPolicyText)){
                     onTextSelected(span.item)
                 }
             }
