@@ -24,8 +24,8 @@ fun SignupScreen() {
             .fillMaxSize()
             .background(Color.White)
             .padding(28.dp)
-    ){
-        Column(modifier = Modifier.fillMaxSize()){
+    ) {
+        Column(modifier = Modifier.fillMaxSize()) {
             NormalTextComponent(value = stringResource(id = R.string.hello))
             HeadingTextComponent(value = stringResource(id = R.string.create_account))
             Spacer(modifier = Modifier.height(20.dp))
@@ -48,14 +48,23 @@ fun SignupScreen() {
             CheckBoxComponent(value = stringResource(id = R.string.terms_and_conditions),
                 onTextSelected = {
                     PostOfficeAppRouter.navigateTo(Screen.TermAndConditScreen)
-
                 })
+            Spacer(modifier = Modifier.height(80.dp))
+            ButtonComponent(value = stringResource(id = R.string.register))
+
+            Spacer(modifier = Modifier.height(20.dp))
+
+            DividerTextComponent()
+
+            ClickableLoginTextComponent(onTextSelected = {
+
+            })
         }
     }
 }
 
 @Preview
 @Composable
-fun DefaultPreviewOfSignUpScreen(){
+fun DefaultPreviewOfSignUpScreen() {
     SignupScreen()
 }
