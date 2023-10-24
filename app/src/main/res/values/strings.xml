@@ -11,4 +11,8 @@
     <string name="show_password">Show Password</string>
     <string name="terms_and_conditions">Please elaborate these lines</string>
     <string name="terms_and_conditions_header">Terms of Use</string>
+    <string name="register">Register</string>
+    <string name="login">Login</string>
+    <string name="or">OR</string>
+    <string name="go_to_login">Already have an account? Login</string>
 </resources>
